@@ -34,3 +34,8 @@ void BST::inOrderPrint()
 {
     root->inOrderPrint();
 }
+
+int BST::height()
+{
+    root->height();
+}

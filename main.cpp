@@ -4,26 +4,35 @@
 
 int main(int argc, char* argv[])
 {
-    int data = std::stoi(std::string(argv[1]));
-    BST* bst = new BST(data);
-
-    bst->insert(30);
-    bst->insert(20);
-    bst->insert(40);
-    bst->insert(70);
-    bst->insert(60);
-    bst->insert(80);
-
-    std::cout << "The tree (inorder traversal):\n";
-    bst->inOrderPrint();
-    std::cout << "\n";
-
-    if (bst->contains(60))
+    if (argc == 2)
     {
-        std::cout << "The BST contains the value 60.\n";
-    }
+        int data = std::stoi(std::string(argv[1]));
+        std::cout << "Value at the root of the BST: " << data << "\n";
 
-    delete bst;
+        BST* bst = new BST(data);
+
+        int arr[] = {30, 20, 40, 70, 60, 80};
+        int n = sizeof(arr) / sizeof(arr[0]);
+        std::cout << "Values to be inserted in the BST (with the following order):\n";
+        for (int i = 0; i < n; i++)
+        {
+            std::cout << arr[i] << "\n";
+            bst->insert(arr[i]);
+        }
+
+        std::cout << "The BST (inorder traversal):\n";
+        bst->inOrderPrint();
+        std::cout << "\n";
+
+        std::cout << "The height of the BST is: " << bst->height() << "\n";
+
+        if (bst->contains(60))
+        {
+            std::cout << "The BST contains the value 60.\n";
+        }
+
+        delete bst;
+    }
 
     return 0;
 }

@@ -19,6 +19,9 @@ public:
     
     // inorder traverse
     void inOrderPrint();
+
+    // height of node
+    int height();
 };
 
 #endif

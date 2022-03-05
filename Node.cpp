@@ -102,3 +102,28 @@ void Node::inOrderPrint()
         right->inOrderPrint();
     }
 }
+
+// recursive implementation
+int Node::height()
+{
+    if ((left == nullptr) && (right == nullptr))
+    {
+        return 0;
+    }
+
+    if (right == nullptr)
+    {
+        return (1 + left->height());
+    }
+    else if (left == nullptr)
+    {
+        return (1 + right->height());
+    }
+    else
+    {
+        int hLeft = left->height();
+        int hRight = right->height();
+        int maxHeight = (hLeft > hRight) ? hLeft : hRight;
+        return (1 + maxHeight);
+    }
+}

@@ -84,7 +84,7 @@ bool Node::contains(int data)
         }
         else
         {
-            return true;
+            return false;
         }
     }
 }
